@@ -1,39 +1,57 @@
 package org.sopt.seminar
 
+import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import org.sopt.seminar.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
-    private lateinit var binding : ActivitySignInBinding
+    private lateinit var binding: ActivitySignInBinding
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loginEvent()
+        setSignUp()
         signupEvent()
     }
 
-    private fun loginEvent(){
-        binding.btnLogin.setOnClickListener{
-            if(!binding.etId.text.isNullOrBlank()&&!binding.etPw.text.isNullOrBlank()) {
+    private fun loginEvent() {
+        binding.btnLogin.setOnClickListener {
+            if (!binding.etId.text.isNullOrBlank() && !binding.etPw.text.isNullOrBlank()) {
                 showToast("로그인 성공")
                 goHome()
-            }else
+            } else
                 showToast("아이디/비밀번호를 확인해주세요")
         }
     }
 
-    private fun signupEvent(){
-        
+    private fun setSignUp() {
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val id = result.data?.getStringExtra("id") ?: ""
+                    val password = result.data?.getStringExtra("password") ?: ""
+                    binding.etId.setText(id)
+                    binding.etPw.setText(password)
+                }
+            }
     }
 
-    private fun goHome(){
-        val intent = Intent(this,HomeActivity::class.java)
+    private fun signupEvent() {
+        binding.btnSignup.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            resultLauncher.launch(intent)
+        }
+    }
+
+    private fun goHome() {
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }

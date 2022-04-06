@@ -1,6 +1,6 @@
 package org.sopt.seminar
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.sopt.seminar.databinding.ActivityHomeBinding
 import org.sopt.seminar.databinding.ActivitySignInBinding
