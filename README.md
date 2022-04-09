@@ -144,4 +144,8 @@
     -양방향 데이터 결합 지원 불가
 
     ```
-
+ ## 📸 실행 화면
+ 
+로그인|회원가입|
+|:---:|:---:|
+|<img src="https://user-images.githubusercontent.com/62291759/162580908-7576f2d4-44ad-4f69-a8f7-d1c1918d1129.gif" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/62291759/162581244-ae823402-b344-4a66-a84d-bac34766536e.gif" width="250" height="500"/>|
