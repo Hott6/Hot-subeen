@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/button_shape.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/follower_button_color.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/recyclerview_shape.xml" value="0.1445" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14387031408308004" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.264959716796875" />

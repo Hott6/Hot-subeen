@@ -21,19 +21,20 @@ class HomeActivity : AppCompatActivity() {
         val repoFragment = RepoFragment()
 
         supportFragmentManager.beginTransaction().add(R.id.fragment_home, followerFragment).commit()
+
         binding.btnFollower.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            when (position) {
-                FOLLOWER_POSITION -> {
-                    transaction.replace(R.id.fragment_home, repoFragment)
-                    position = REPO_POSITION
-                }
-                REPO_POSITION -> {
-                    transaction.replace(R.id.fragment_home, followerFragment)
-                    position = FOLLOWER_POSITION
-                }
+            if (position == REPO_POSITION) {
+                transaction.replace(R.id.fragment_home, followerFragment).commit()
+                position = FOLLOWER_POSITION
             }
-            transaction.commit()
+        }
+        binding.btnRepo.setOnClickListener {
+            val transaction = supportFragmentManager.beginTransaction()
+            if (position == FOLLOWER_POSITION) {
+                transaction.replace(R.id.fragment_home, repoFragment).commit()
+                position = REPO_POSITION
+            }
         }
     }
 
