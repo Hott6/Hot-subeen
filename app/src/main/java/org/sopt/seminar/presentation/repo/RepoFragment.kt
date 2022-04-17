@@ -1,10 +1,12 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.repo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import org.sopt.seminar.HorizontalItemDecorator
+import org.sopt.seminar.VerticalItemDecorator
 import org.sopt.seminar.databinding.FragmentRepoBinding
 
 class RepoFragment : Fragment() {

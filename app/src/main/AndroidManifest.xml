@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoptAndroid">
         <activity
-            android:name=".HomeActivity"
+            android:name=".presentation.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".presentation.login.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".presentation.login.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.repo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

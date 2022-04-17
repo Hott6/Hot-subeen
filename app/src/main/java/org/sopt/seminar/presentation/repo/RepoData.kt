@@ -1,4 +1,4 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.repo
 
 data class RepoData(
     val repo: String,

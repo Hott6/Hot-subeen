@@ -1,8 +1,12 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import org.sopt.seminar.presentation.follower.FollowerFragment
+import org.sopt.seminar.R
+import org.sopt.seminar.presentation.repo.RepoFragment
+import org.sopt.seminar.User
 import org.sopt.seminar.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

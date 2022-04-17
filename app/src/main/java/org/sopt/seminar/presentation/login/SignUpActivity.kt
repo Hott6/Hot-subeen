@@ -1,9 +1,10 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.sopt.seminar.databinding.ActivitySignUpBinding
+import org.sopt.seminar.showToast
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
