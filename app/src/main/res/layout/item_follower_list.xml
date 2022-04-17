@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/recyclerview_shape"
-    android:paddingVertical="10dp">
+    android:paddingVertical="5dp">
 
     <ImageView
         android:id="@+id/iv_profile"
@@ -16,7 +16,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.25"/>
+        app:layout_constraintWidth_percent="0.2"/>
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"

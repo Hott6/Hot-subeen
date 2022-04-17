@@ -16,29 +16,29 @@ class FollowerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
-
         initAdapter()
-
         return binding.root
-
-
     }
 
-    private fun initAdapter(){
+    private fun initAdapter() {
         followerAdapter = FollowerAdapter()
-        binding.rvFollower.adapter=followerAdapter
+        binding.rvFollower.adapter = followerAdapter
+
+        with(binding) {
+            rvFollower.addItemDecoration(VerticalItemDecorator(10))
+            rvFollower.addItemDecoration(HorizontalItemDecorator(10))
+        }
+
         followerAdapter.followerList.addAll(
             listOf(
-                FollowerData("김수빈","안드로이드 OB"),
-                FollowerData("권용민","안드로이드 OB"),
-                FollowerData("이준원","안드로이드 YB"),
-                FollowerData("최윤정","안드로이드 YB"),
-                FollowerData("최유리","안드로이드 YB"),
-                FollowerData("이강민","안드로이드 파트장"),
-                FollowerData("김태현","iOS 파트장"),
-                FollowerData("김두범","기획 파트장")
-
-
+                FollowerData("김수빈", "안드로이드 OB"),
+                FollowerData("권용민", "안드로이드 OB"),
+                FollowerData("이준원", "안드로이드 YB"),
+                FollowerData("최윤정", "안드로이드 YB"),
+                FollowerData("최유리", "안드로이드 YB"),
+                FollowerData("이강민", "안드로이드 파트장"),
+                FollowerData("김태현", "iOS 파트장"),
+                FollowerData("김두범", "기획 파트장")
             )
         )
         followerAdapter.notifyDataSetChanged()
