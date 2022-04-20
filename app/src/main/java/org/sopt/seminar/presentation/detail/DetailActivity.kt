@@ -12,5 +12,17 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        getData()
+    }
+
+    private fun getData() {
+        val name = intent.getStringExtra("name")
+        val introduction = intent.getStringExtra("introduction")
+
+        binding.apply {
+            tvName.text = name
+            tvIntroduce.text = introduction
+        }
+
     }
 }

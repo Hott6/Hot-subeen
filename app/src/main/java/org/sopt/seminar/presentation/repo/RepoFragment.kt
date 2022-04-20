@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
+import org.sopt.seminar.MyTouchHelperCallback
 import org.sopt.seminar.VerticalItemDecorator
 import org.sopt.seminar.databinding.FragmentRepoBinding
+import org.sopt.seminar.presentation.follower.FollowerAdapter
 
 class RepoFragment : Fragment() {
     private var _binding: FragmentRepoBinding? = null
@@ -21,17 +24,23 @@ class RepoFragment : Fragment() {
         _binding = FragmentRepoBinding.inflate(layoutInflater, container, false)
 
         initAdapter()
-
         return binding.root
     }
 
     private fun initAdapter() {
         repoAdapter = RepoAdapter()
         binding.rvRepo.adapter = repoAdapter
-        with(binding) {
-            rvRepo.addItemDecoration(VerticalItemDecorator(20))
-            rvRepo.addItemDecoration(HorizontalItemDecorator(10))
-        }
+        recyclerViewDecoration()
+
+        val callback = MyTouchHelperCallback(repoAdapter)
+        val touchHelper = ItemTouchHelper(callback)
+        touchHelper.attachToRecyclerView(binding.rvRepo)
+        binding.rvRepo.adapter = repoAdapter
+        repoAdapter.startDrag(object : FollowerAdapter.OnStartDragListener {
+            override fun onStartDrag(viewHolder: FollowerAdapter.FollowerViewHolder) {
+                touchHelper.startDrag(viewHolder)
+            }
+        })
         repoAdapter.repoList.addAll(
             listOf(
                 RepoData("Hott6", "THE SOPT 30기 안드로이드 파트 금잔디파 6조"),
@@ -45,6 +54,13 @@ class RepoFragment : Fragment() {
             )
         )
         repoAdapter.notifyDataSetChanged()
+    }
+
+    private fun recyclerViewDecoration() {
+        with(binding) {
+            rvRepo.addItemDecoration(VerticalItemDecorator(20))
+            rvRepo.addItemDecoration(HorizontalItemDecorator(10))
+        }
     }
 
     override fun onDestroyView() {
