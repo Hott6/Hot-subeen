@@ -1,9 +1,8 @@
-package org.sopt.seminar
+package org.sopt.seminar.util
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.seminar.presentation.follower.FollowerAdapter
-import org.sopt.seminar.presentation.repo.RepoAdapter
 
 class MyTouchHelperCallback(
     private val itemMoveListener: OnItemMoveListener

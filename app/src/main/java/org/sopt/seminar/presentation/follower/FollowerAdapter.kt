@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.seminar.MyTouchHelperCallback
+import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.ItemFollowerListBinding
 import java.util.*
 

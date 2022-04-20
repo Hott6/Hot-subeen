@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
-import org.sopt.seminar.MyTouchHelperCallback
+import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.VerticalItemDecorator
 import org.sopt.seminar.databinding.FragmentFollowerBinding
 import org.sopt.seminar.presentation.detail.DetailActivity

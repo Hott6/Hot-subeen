@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
-import org.sopt.seminar.MyTouchHelperCallback
+import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.VerticalItemDecorator
 import org.sopt.seminar.databinding.FragmentRepoBinding
 import org.sopt.seminar.presentation.follower.FollowerAdapter
