@@ -361,6 +361,8 @@
 
 * ### ListAdapter ,DIFFUTIL 관련 내용
 
-    * ListAdapter는 DiffUtil을 활용하여 리스트를 업데이트할 수 있는 기능을 추가한 Adapter라고 생각하시면 될 것 같습니다. 기존 어댑터와 비교해서 추가로 DiffUtil 기능에 대한 콜백 기능 클래스만 구현하면 되므로 생산성, 효율성을 높일 수 있을
+    * ListAdapter는 DiffUtil을 활용하여 리스트를 업데이트할 수 있는 기능을 추가한 Adapter, 기존 어댑터와 비교해서 추가로 DiffUtil 기능에 대한 콜백 기능 클래스만 구현하면 되므로 생산성, 효율성을 높일 수 있다.
+    
+    * https://velog.io/@l2hyunwoo/Android-RecyclerView-DiffUtil-ListAdapter
 
     * https://velog.io/@deepblue/RecyclerView%EC%9D%98-notifyDataSetChanged
