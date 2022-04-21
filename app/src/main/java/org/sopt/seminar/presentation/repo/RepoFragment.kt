@@ -1,18 +1,10 @@
 package org.sopt.seminar.presentation.repo
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.ItemTouchHelper
+
 import org.sopt.seminar.HorizontalItemDecorator
 import org.sopt.seminar.R
-import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.VerticalItemDecorator
-import org.sopt.seminar.databinding.FragmentFollowerBinding
 import org.sopt.seminar.databinding.FragmentRepoBinding
-import org.sopt.seminar.presentation.follower.FollowerAdapter
 import org.sopt.seminar.util.BaseFragment
 
 class RepoFragment : BaseFragment<FragmentRepoBinding>(R.layout.fragment_repo) {

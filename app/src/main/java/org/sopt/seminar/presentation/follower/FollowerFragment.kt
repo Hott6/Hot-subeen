@@ -1,7 +1,6 @@
 package org.sopt.seminar.presentation.follower
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
@@ -53,7 +52,6 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
                 ),
                 FollowerData(
                     "이강민", "안드로이드 파트장"
-
                 ),
                 FollowerData(
                     "김태현", "iOS 파트장"

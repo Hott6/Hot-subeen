@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.ItemFollowerListBinding
-import org.sopt.seminar.presentation.repo.RepoAdapter
-import org.sopt.seminar.presentation.repo.RepoData
 import java.util.*
 
 class FollowerAdapter : ListAdapter<FollowerData, FollowerAdapter.FollowerViewHolder>(DIFFUTIL),

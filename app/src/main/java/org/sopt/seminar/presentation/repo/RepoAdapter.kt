@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.ItemRepoListBinding
-import java.util.*
 
 class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
     DIFFUTIL
@@ -28,7 +26,7 @@ class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
         private val binding: ItemRepoListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(repoData: RepoData) {
-          binding.repo = repoData
+            binding.repo = repoData
         }
     }
 
@@ -49,7 +47,7 @@ class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
             }
         }
     }
-
+}
 //    interface OnStartDragListener {
 //        fun onStartDrag(viewHolder: RepoAdapter.RepoViewHolder)
 //    }
@@ -67,5 +65,5 @@ class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
 //    fun afterDragAndDrop() {
 //        notifyDataSetChanged()
 
-    }
+
 
