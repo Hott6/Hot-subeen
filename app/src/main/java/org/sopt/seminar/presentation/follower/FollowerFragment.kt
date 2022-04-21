@@ -14,12 +14,12 @@ import org.sopt.seminar.util.BaseFragment
 
 class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
 
-    private lateinit var followerAdapter: FollowerAdapter
+    private var followerAdapter = FollowerAdapter()
 
-     override fun initAdapter() {
-        followerAdapter = FollowerAdapter()
+    override fun initAdapter() {
         binding.rvFollower.adapter = followerAdapter
         recyclerViewDecoration()
+        addRepoList()
         itemClickEvent()
 
         val callback = MyTouchHelperCallback(followerAdapter)
@@ -31,28 +31,47 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
                 touchHelper.startDrag(viewHolder)
             }
         })
+    }
 
-        followerAdapter.followerList.addAll(
+    private fun addRepoList() {
+        followerAdapter.submitList(
             listOf(
-                FollowerData("김수빈", "안드로이드 OB"),
-                FollowerData("권용민", "안드로이드 OB"),
-                FollowerData("이준원", "안드로이드 YB"),
-                FollowerData("최윤정", "안드로이드 YB"),
-                FollowerData("최유리", "안드로이드 YB"),
-                FollowerData("이강민", "안드로이드 파트장"),
-                FollowerData("김태현", "iOS 파트장"),
-                FollowerData("김두범", "기획 파트장")
+                FollowerData(
+                    "김수빈", "안드로이드 OB"
+                ),
+                FollowerData(
+                    "권용민", "안드로이드 OB"
+                ),
+                FollowerData(
+                    "이준원", "안드로이드 YB"
+                ),
+                FollowerData(
+                    "최윤정", "안드로이드 YB"
+                ),
+                FollowerData(
+                    "최유리", "안드로이드 YB"
+                ),
+                FollowerData(
+                    "이강민", "안드로이드 파트장"
+
+                ),
+                FollowerData(
+                    "김태현", "iOS 파트장"
+                ),
+                FollowerData(
+                    "김두범", "기획 파트장"
+                )
+
             )
         )
-        followerAdapter.notifyDataSetChanged()
 
     }
 
     private fun itemClickEvent() {
         followerAdapter.setItemClickListener(object : FollowerAdapter.OnItemClickListener {
             override fun onClick(view: View, position: Int) {
-                val name = followerAdapter.followerList[position].name
-                val introduce = followerAdapter.followerList[position].introduction
+                val name = followerAdapter.currentList[position].name
+                val introduce = followerAdapter.currentList[position].introduction
                 val intent = Intent(context, DetailActivity::class.java)
                     .putExtra("name", name)
                     .putExtra("introduction", introduce)

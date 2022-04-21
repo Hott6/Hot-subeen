@@ -24,8 +24,6 @@ class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
         holder.onBind(getItem(position))
     }
 
-    override fun getItemCount(): Int = currentList.size
-
     class RepoViewHolder(
         private val binding: ItemRepoListBinding
     ) : RecyclerView.ViewHolder(binding.root) {

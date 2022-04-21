@@ -3,16 +3,18 @@ package org.sopt.seminar.presentation.follower
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.ItemFollowerListBinding
+import org.sopt.seminar.presentation.repo.RepoAdapter
+import org.sopt.seminar.presentation.repo.RepoData
 import java.util.*
 
-class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>(),
+class FollowerAdapter : ListAdapter<FollowerData, FollowerAdapter.FollowerViewHolder>(DIFFUTIL),
     MyTouchHelperCallback.OnItemMoveListener {
 
-
-    val followerList = mutableListOf<FollowerData>()
     private lateinit var itemClickListener: OnItemClickListener
 
 
@@ -22,28 +24,9 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
         return FollowerViewHolder(binding)
 
     }
-    override fun getItemCount(): Int = followerList.size
-
-    interface OnStartDragListener {
-        fun onStartDrag(viewHolder: FollowerViewHolder)
-    }
-
-    override fun onItemMove(fromPosition: Int, toPosition: Int) {
-        Collections.swap(followerList, fromPosition, toPosition)
-        notifyItemMoved(fromPosition, toPosition)
-    }
-
-    override fun onItemSwipe(position: Int) {
-        followerList.removeAt(position)
-        notifyItemRemoved(position)
-    }
-
-    fun afterDragAndDrop() {
-        notifyDataSetChanged()
-    }
 
     override fun onBindViewHolder(holder: FollowerViewHolder, position: Int) {
-        holder.onBind(followerList[position])
+        holder.onBind(getItem(position))
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
@@ -52,10 +35,46 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
     inner class FollowerViewHolder(
         private val binding: ItemFollowerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: FollowerData) {
-            binding.tvName.text = data.name
-            binding.tvIntroduce.text = data.introduction
+        fun onBind(followerData: FollowerData) {
+           binding.follower = followerData
         }
+    }
+
+    companion object {
+        val DIFFUTIL = object : DiffUtil.ItemCallback<FollowerData>() {
+            override fun areItemsTheSame(
+                oldItem: FollowerData,
+                newItem: FollowerData
+            ): Boolean {
+                return oldItem.name == newItem.name
+            }
+
+            override fun areContentsTheSame(
+                oldItem: FollowerData,
+                newItem: FollowerData
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
+
+
+    interface OnStartDragListener {
+        fun onStartDrag(viewHolder: FollowerViewHolder)
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        Collections.swap(currentList, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemSwipe(position: Int) {
+        currentList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun afterDragAndDrop() {
+        notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
