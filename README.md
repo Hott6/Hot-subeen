@@ -221,7 +221,7 @@
     
     * ##### xml에서 GridLayoutManager설정 -> .kt파일에서도 설정 가능!!!!
     
- ## seminar2 level2 
+ ## seminar2-level2 
  
  * ### FollowerFragment : 팔로워 이름과 설명을 name, introduce로 DetailActivity로 전달
 
@@ -313,7 +313,7 @@
      * ##### Fragment 생명주기를 이용하여 onCreateView에서는 view에 대한 초기화 작업을 수행
      * ##### onViewCreated에서는 recyclerView에 실제 adapter를 붙여 데이터를 보여주게끔 구현
 
-* ### DIFFUTIL : notifyDataSetChanged 문제점 해결
+* ### ListAdapter, DIFFUTIL : notifyDataSetChanged 문제점 해결
 
     ```kotlin
     
@@ -348,3 +348,19 @@
     
      * ##### Fragment,item_xxx_list 모두 DataBinding으로 : repo
      * ##### DIFFUTIL로 기존의 데이터 리스트와 교체할 데이터 리스트를 비교하여 실질적으로 업데이트가 필요한 아이템을 추려 notifyDataSetChanged 문제점 보완
+     
+ * ### 🙀 notifyDataSetChanged 문제점
+    
+    #### 수천개의 데이터 중 단 한 개의 데이터만 바뀐다면 notifyDataSetChanged()의 사용은 비효율적이다.
+    #### 변경된 데이터의 position을 인자로 넘겨주어 해당 데이터만 변경하는 notifyItemChanged가 있지만 역시나 position을 찾아 넘겨주며 하나하나 값을 변경하는 번거로운 일이 발생한다.
+
+    #### 이때 아이템의 변경을 감지하고 갱신하는 역할 "DIFFUTIL" 을 사용한다. DIFFUTIL은 oldList와 newList를 비교하여 차이를 계산하고, newList로 갱신해주는 유틸리티 클래스이다.
+
+    #### 이 클래스를 사용하면 아이템 변경의 구체적인 상황에 따라 Adapter의 적절한 메소드를 호출하지 않아도 된다.
+    
+
+* ### ListAdapter ,DIFFUTIL 관련 내용
+
+    * ListAdapter는 DiffUtil을 활용하여 리스트를 업데이트할 수 있는 기능을 추가한 Adapter라고 생각하시면 될 것 같습니다. 기존 어댑터와 비교해서 추가로 DiffUtil 기능에 대한 콜백 기능 클래스만 구현하면 되므로 생산성, 효율성을 높일 수 있을
+
+    * https://velog.io/@deepblue/RecyclerView%EC%9D%98-notifyDataSetChanged
