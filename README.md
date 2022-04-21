@@ -366,3 +366,19 @@
     * https://velog.io/@l2hyunwoo/Android-RecyclerView-DiffUtil-ListAdapter
 
     * https://velog.io/@deepblue/RecyclerView%EC%9D%98-notifyDataSetChanged
+
+ ## 📸 실행 화면
+ 
+DetailActivity|아이템 이동|
+|:---:|:---:|
+|<img src="https://user-images.githubusercontent.com/62291759/164503699-460b534a-e4b4-4333-aa11-df157deb6e9a.gif" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/62291759/164504741-0aa07e65-d9dc-437b-abb5-66c7caf7c505.gif" width="250" height="500"/>|
+
+### 📝 seminar2 알게된 점 📝
+
+##### ‣  보일러플레이트 코드 개선 : BaseActivity, BaseFragment
+
+##### ‣ ItemTouchHelper() , ItemDecoration() 내용
+
+##### ‣ ListAdapter, DIFFUTIL, notifyDataSetChanged 복습 및 차이점 
+
+##### ‣ Fragment 생명주기 : onViewCreated()
