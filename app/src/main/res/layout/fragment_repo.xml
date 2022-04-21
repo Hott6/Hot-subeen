@@ -23,4 +23,3 @@
             tools:listitem="@layout/item_repo_list" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
