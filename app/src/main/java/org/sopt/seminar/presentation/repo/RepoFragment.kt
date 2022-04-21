@@ -7,27 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
+import org.sopt.seminar.R
 import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.VerticalItemDecorator
+import org.sopt.seminar.databinding.FragmentFollowerBinding
 import org.sopt.seminar.databinding.FragmentRepoBinding
 import org.sopt.seminar.presentation.follower.FollowerAdapter
+import org.sopt.seminar.util.BaseFragment
 
-class RepoFragment : Fragment() {
-    private var _binding: FragmentRepoBinding? = null
-    private val binding get() = _binding ?: error("Binding이 초기화 되지 않았습니다.")
+class RepoFragment : BaseFragment<FragmentRepoBinding>(R.layout.fragment_repo) {
+
     private lateinit var repoAdapter: RepoAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentRepoBinding.inflate(layoutInflater, container, false)
 
-        initAdapter()
-        return binding.root
-    }
-
-    private fun initAdapter() {
+    override fun initAdapter() {
         repoAdapter = RepoAdapter()
         binding.rvRepo.adapter = repoAdapter
         recyclerViewDecoration()
@@ -63,8 +56,4 @@ class RepoFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

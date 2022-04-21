@@ -1,38 +1,25 @@
 package org.sopt.seminar.presentation.follower
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
+import org.sopt.seminar.R
 import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.VerticalItemDecorator
 import org.sopt.seminar.databinding.FragmentFollowerBinding
 import org.sopt.seminar.presentation.detail.DetailActivity
+import org.sopt.seminar.util.BaseFragment
 
-class FollowerFragment : Fragment() {
-    private var _binding: FragmentFollowerBinding? = null
-    private val binding get() = _binding ?: error("Binding이 초기화 되지 않았습니다.")
+class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
+
     private lateinit var followerAdapter: FollowerAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
-
-        initAdapter()
-        itemClickEvent()
-        return binding.root
-    }
-
-    private fun initAdapter() {
+    override fun initAdapter() {
         followerAdapter = FollowerAdapter()
         binding.rvFollower.adapter = followerAdapter
         recyclerViewDecoration()
+        itemClickEvent()
 
         val callback = MyTouchHelperCallback(followerAdapter)
         val touchHelper = ItemTouchHelper(callback)
@@ -82,8 +69,4 @@ class FollowerFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
