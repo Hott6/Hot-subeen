@@ -382,3 +382,5 @@ DetailActivity|아이템 이동|
 ##### ‣ ListAdapter, DIFFUTIL, notifyDataSetChanged 복습 및 차이점 
 
 ##### ‣ Fragment 생명주기 : onViewCreated()
+
+예시
