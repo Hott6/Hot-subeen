@@ -30,11 +30,11 @@ class FollowerAdapter : ListAdapter<FollowerData, FollowerAdapter.FollowerViewHo
         }
     }
 
-    inner class FollowerViewHolder(
+    class FollowerViewHolder(
         private val binding: ItemFollowerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(followerData: FollowerData) {
-           binding.follower = followerData
+            binding.follower = followerData
         }
     }
 

@@ -48,22 +48,7 @@ class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
         }
     }
 }
-//    interface OnStartDragListener {
-//        fun onStartDrag(viewHolder: RepoAdapter.RepoViewHolder)
-//    }
-//
-//    override fun onItemMove(fromPosition: Int, toPosition: Int) {
-//        Collections.swap(repoList, fromPosition, toPosition)
-//        notifyItemMoved(fromPosition, toPosition)
-//    }
-//
-//    override fun onItemSwipe(position: Int) {
-//        repoList.removeAt(position)
-//        notifyItemRemoved(position)
-//    }
-//
-//    fun afterDragAndDrop() {
-//        notifyDataSetChanged()
+
 
 
 

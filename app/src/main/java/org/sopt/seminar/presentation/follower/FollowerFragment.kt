@@ -1,6 +1,7 @@
 package org.sopt.seminar.presentation.follower
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.seminar.HorizontalItemDecorator
@@ -15,7 +16,13 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
 
     private var followerAdapter = FollowerAdapter()
 
-    override fun initAdapter() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = this
+        initAdapter()
+    }
+
+    private fun initAdapter() {
         binding.rvFollower.adapter = followerAdapter
         recyclerViewDecoration()
         addRepoList()
