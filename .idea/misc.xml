@@ -3,10 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.28258361816406263" />
+        <entry key="app/src/main/res/drawable/button_shape.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/follower_button_color.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/item_repo_list.xml" value="0.151" />
+        <entry key="app/src/main/res/drawable/line_divider.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/recyclerview_shape.xml" value="0.1445" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.24909420289855072" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14387031408308004" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.264959716796875" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/fragment_repo.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/item_repo_list.xml" value="0.25271739130434784" />
       </map>
     </option>
   </component>
