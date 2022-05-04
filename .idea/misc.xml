@@ -14,15 +14,17 @@
         <entry key="app/src/main/res/drawable/recyclerview_shape.xml" value="0.1445" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.24909420289855072" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14387031408308004" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14571662755964251" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.264959716796875" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.21240942028985507" />
         <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33878934556159424" />
         <entry key="app/src/main/res/layout/fragment_repo.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/item_repo_list.xml" value="0.25271739130434784" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>

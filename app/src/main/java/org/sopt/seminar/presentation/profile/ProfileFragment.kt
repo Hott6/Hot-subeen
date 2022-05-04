@@ -1,4 +1,4 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
+import org.sopt.seminar.R
+import org.sopt.seminar.User
 import org.sopt.seminar.databinding.FragmentProfileBinding
 import org.sopt.seminar.presentation.follower.FollowerFragment
 import org.sopt.seminar.presentation.repo.RepoFragment
@@ -31,7 +34,7 @@ class ProfileFragment : Fragment() {
 
     private fun initImage() {
         Glide.with(this)
-            .load("https://avatars.githubusercontent.com/u/89780201?s=200&v=4")
+            .load("https://i.pinimg.com/564x/71/9f/ad/719fad4d7eeee41beb6d17b6de75ff21.jpg")
             .circleCrop()
             .into(binding.imgProfile)
     }
@@ -68,5 +71,3 @@ class ProfileFragment : Fragment() {
         _binding = null
     }
 }
-
-// _binding = FragmentProfileBinding.inflate(inflater, container, false)

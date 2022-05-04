@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import org.sopt.seminar.MainActivity
 import org.sopt.seminar.databinding.ActivitySignInBinding
 import org.sopt.seminar.presentation.home.HomeActivity
 import org.sopt.seminar.showToast
@@ -53,7 +54,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun goHome() {
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }
