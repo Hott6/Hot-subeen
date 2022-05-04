@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.sopt.seminar.presentation.camera.CameraFragment
+import org.sopt.seminar.presentation.home.HomeFragment
 import org.sopt.seminar.presentation.profile.ProfileFragment
 
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
