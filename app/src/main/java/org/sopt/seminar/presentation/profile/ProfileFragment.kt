@@ -1,10 +1,12 @@
 package org.sopt.seminar.presentation.profile
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
@@ -46,6 +48,7 @@ class ProfileFragment : Fragment() {
         childFragmentManager.beginTransaction().add(R.id.fragment_profile, followerFragment)
             .commit()
         binding.btnFollower.isSelected = true //처음 화면 보여질 시에
+        binding.btnFollower.setTextColor(Color.BLACK)
 
         binding.btnFollower.setOnClickListener {
             childFragmentManager.beginTransaction()
@@ -54,6 +57,8 @@ class ProfileFragment : Fragment() {
                 .commit()
             binding.btnFollower.isSelected = true;
             binding.btnRepo.isSelected = false;
+            binding.btnRepo.setTextColor(Color.GRAY)
+            binding.btnFollower.setTextColor(Color.BLACK)
         }
         binding.btnRepo.setOnClickListener {
             childFragmentManager.beginTransaction()
@@ -62,7 +67,8 @@ class ProfileFragment : Fragment() {
                 .commit()
             binding.btnRepo.isSelected = true
             binding.btnFollower.isSelected = false
-
+            binding.btnFollower.setTextColor(Color.GRAY)
+            binding.btnRepo.setTextColor(Color.BLACK)
         }
     }
 

@@ -10,7 +10,8 @@
     <color name="blue">#758dd3</color>
     <color name="pink">#fbc3bd</color>
     <color name="purple">#9888bd</color>
-    <color name="sopt_grey">#F7F6F9</color>
+    <color name="sopt_gray">#F7F6F9</color>
     <color name="sopt_main_purple">#8040FF</color>
     <color name="sopt_white">#FAF8FF</color>
+    <color name="gray">#808080</color>
 </resources>
