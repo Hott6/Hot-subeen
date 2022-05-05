@@ -1,8 +1,9 @@
-package org.sopt.seminar
+package org.sopt.seminar.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
+import org.sopt.seminar.R
 import org.sopt.seminar.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

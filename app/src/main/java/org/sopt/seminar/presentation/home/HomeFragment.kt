@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
-import org.sopt.seminar.HomeViewPagerAdapter
 import org.sopt.seminar.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -30,7 +29,7 @@ class HomeFragment : Fragment() {
     private fun initAdapter() {
         val fragmentList=listOf(HomeFollowerFragment(),HomeFollowingFragment())
 
-        homeViewPagerAdapter=HomeViewPagerAdapter(this)
+        homeViewPagerAdapter= HomeViewPagerAdapter(this)
         homeViewPagerAdapter.fragments.addAll(fragmentList)
         binding.vpHome.adapter=homeViewPagerAdapter
 

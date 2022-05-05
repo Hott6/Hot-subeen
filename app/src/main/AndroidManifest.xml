@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoptAndroid">
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.detail.DetailActivity"

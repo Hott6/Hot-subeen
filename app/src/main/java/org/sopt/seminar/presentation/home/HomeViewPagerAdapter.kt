@@ -1,4 +1,4 @@
-package org.sopt.seminar
+package org.sopt.seminar.presentation.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
