@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable/button_shape.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/edit_background.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/follower_button_color.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1165" />
@@ -16,8 +17,8 @@
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.24909420289855072" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14571662755964251" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.264959716796875" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.1610626220703125" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.22434082031249997" />
         <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.21240942028985507" />
         <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30594787597656253" />
