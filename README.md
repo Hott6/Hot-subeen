@@ -6,6 +6,7 @@
 
 [2️⃣ Seminar](#seminar2-level1)
 
+[3️⃣ Seminar](#seminar3-level1)
 
 ---
 ### 1️⃣ Week
@@ -383,4 +384,96 @@ DetailActivity|아이템 이동|
 
 ##### ‣ Fragment 생명주기 : onViewCreated()
 
-예시
+
+---
+### 3️⃣ Week
+## seminar3-level1
+
+* ### ProFileFragment
+
+    ```kotlin
+    
+       private fun initTransactionEvent() {
+        val followerFragment = FollowerFragment()
+        val repositoryFragment = RepoFragment()
+
+        childFragmentManager.beginTransaction().add(R.id.fragment_profile, followerFragment)
+            .commit()
+        binding.btnFollower.isSelected = true //처음 화면 보여질 시에
+        binding.btnFollower.setTextColor(Color.BLACK)
+
+        binding.btnFollower.setOnClickListener {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_profile, followerFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit()
+            binding.btnFollower.isSelected = true;
+            binding.btnRepo.isSelected = false;
+            binding.btnRepo.setTextColor(Color.GRAY)
+            binding.btnFollower.setTextColor(Color.BLACK)
+        }
+        binding.btnRepo.setOnClickListener {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_profile, repositoryFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit()
+            binding.btnRepo.isSelected = true
+            binding.btnFollower.isSelected = false
+            binding.btnFollower.setTextColor(Color.GRAY)
+            binding.btnRepo.setTextColor(Color.BLACK)
+         }
+      }
+    
+    ```
+     * ##### button, textView 클릭 시 색 변경 로직 코드
+     * ##### childFragmentManager()로 한 뷰에 follower, repository 프래그먼트 연결
+
+* ### HomeFragment
+
+    ```kotlin
+    
+         private fun initTabLayout() {
+            val tabLable = listOf("팔로잉", "팔로워")
+
+            TabLayoutMediator(binding.homeTablayout, binding.vpHome) { tab, position ->
+                tab.text = tabLable[position]
+            }.attach()
+        }
+        
+    ```
+    #### fragment_home.xml
+    
+    ```kotlin
+    
+        <com.google.android.material.tabs.TabLayout
+        android:id="@+id/home_tablayout"
+        ...
+        app:tabIndicatorColor="@color/sopt_main_purple"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/sopt_main_purple" />
+    
+    ```
+     * ##### TabLayout 설정
+     * ##### indicator 색상 설정 및 클릭 시 text 색상 변경
+     
+     
+* ### ViewPagerAdapter(Main)
+
+    ```kotlin
+    
+    class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
+    override fun getItemCount() = 3
+
+    override fun createFragment(position: Int): Fragment {
+        return when (position) {
+            0 -> ProfileFragment()
+            1 -> HomeFragment()
+            else -> CameraFragment()
+            }
+        }
+    }
+    
+   ```
+    * ##### viewPagerAdapter 파일 분리 후 사용
+ 
+     
