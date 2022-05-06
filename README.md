@@ -476,4 +476,67 @@ DetailActivity|아이템 이동|
    ```
     * ##### viewPagerAdapter 파일 분리 후 사용
  
-     
+ ## seminar3-level2
+
+* ### NestedScrollableHost - framgent_home.xml
+
+  ```kotlin
+  
+    <org.sopt.seminar.NestedScrollableHost
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_tablayout">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FAFAFA" />
+    </org.sopt.seminar.NestedScrollableHost>
+  
+  ```
+   * ##### NestedScrollableHost 파일 생성 후 fragment_home에 적용 -> ViewPager2 중첩 스크롤 문제 해결
+   
+  ## seminar3-level3
+  
+* ### CameraFragment
+
+  ```kotlin
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  ```
+   * ##### 카메라 갤러리 접근을 위한 권한을 AndroidManifest.xml에 추가
+   
+   
+  ```kotlin
+  
+        private val activityLauncher: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK && it.data != null) {
+                var currentImageUri = it.data?.data
+                Glide.with(requireActivity()).load(currentImageUri).into(binding.ivGalleryImage)
+
+            } else if (it.resultCode == RESULT_CANCELED) {
+                requireActivity().showToast("사진 선택 취소")
+            } else {
+                requireActivity().showToast("사진 첨부 실패")
+          }
+     }
+  ```
+  * ##### resultCode, registerForActivityResult()를 통해 사진을 갤러리에서 가져온 후 "ivGalleryImage"에 넣기
+
+ ## 📸 실행 화면
+ 
+Profile,Home|Camera|
+|:---:|:---:|
+|<img src="https://user-images.githubusercontent.com/62291759/164503699-460b534a-e4b4-4333-aa11-df157deb6e9a.gif" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/62291759/164504741-0aa07e65-d9dc-437b-abb5-66c7caf7c505.gif" width="250" height="500"/>|
+
+### 📝 seminar3 알게된 점 📝
+
+##### ‣  nestedscrollableHost 개념
+
+##### ‣ shapeDrawable으로 간단한 도형을 만들 수 있고 적용할 수 있다.
+
+##### ‣ 갤러리에서 사진가져와서 이미지뷰로 보여줄 수 있다.
