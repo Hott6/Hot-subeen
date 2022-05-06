@@ -14,12 +14,13 @@
         <entry key="app/src/main/res/drawable/item_repo_list.xml" value="0.151" />
         <entry key="app/src/main/res/drawable/line_divider.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/recyclerview_shape.xml" value="0.1445" />
+        <entry key="app/src/main/res/font/noto_sans_kr.xml" value="0.3194871794871795" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.24909420289855072" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14571662755964251" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.1610626220703125" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.22434082031249997" />
-        <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.21240942028985507" />
+        <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.30660497693048006" />
         <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30594787597656253" />
         <entry key="app/src/main/res/layout/fragment_home_follower.xml" value="0.14311043566362716" />
