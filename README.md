@@ -531,7 +531,7 @@ DetailActivity|아이템 이동|
  
 Profile,Home|Camera|
 |:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/62291759/164503699-460b534a-e4b4-4333-aa11-df157deb6e9a.gif" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/62291759/164504741-0aa07e65-d9dc-437b-abb5-66c7caf7c505.gif" width="250" height="500"/>|
+|<img src="https://user-images.githubusercontent.com/62291759/167079222-d9b05dcb-2889-4730-9e56-7aae404267ea.gif" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/62291759/167079228-989b3721-4191-4be8-992b-52803de0b5ff.gif" width="250" height="500"/>|
 
 ### 📝 seminar3 알게된 점 📝
 
