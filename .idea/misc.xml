@@ -3,20 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable/button_shape.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/edit_background.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/follower_button_color.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1165" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/item_repo_list.xml" value="0.151" />
         <entry key="app/src/main/res/drawable/line_divider.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/recyclerview_shape.xml" value="0.1445" />
+        <entry key="app/src/main/res/font/noto_sans_kr.xml" value="0.3194871794871795" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.24909420289855072" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14387031408308004" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.264959716796875" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14571662755964251" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.22578430175781244" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.21970825195312493" />
+        <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.30660497693048006" />
         <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30594787597656253" />
+        <entry key="app/src/main/res/layout/fragment_home_follower.xml" value="0.14311043566362716" />
+        <entry key="app/src/main/res/layout/fragment_home_following.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.18617021276595744" />
         <entry key="app/src/main/res/layout/fragment_repo.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/item_repo_list.xml" value="0.25271739130434784" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>
