@@ -7,8 +7,6 @@ data class ResponseSignUp(
     val data: Data
 ) {
     data class Data(
-        val id: Int,
-        val name: String,
-        val email: String
+        val id: Int
     )
 }

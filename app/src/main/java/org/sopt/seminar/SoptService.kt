@@ -13,6 +13,6 @@ interface SoptService {
     @POST("auth/signup")
     fun postSignUp(
         @Body body: RequestSignUp
-    ): Call<RequestSignUp>
+    ): Call<ResponseSignUp>
 
 }
