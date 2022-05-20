@@ -9,12 +9,9 @@ import android.widget.Toast
 import retrofit2.Call
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import org.sopt.seminar.RequestSignIn
-import org.sopt.seminar.ResponseSignIn
-import org.sopt.seminar.ServiceCreator
+import org.sopt.seminar.*
 import org.sopt.seminar.main.MainActivity
 import org.sopt.seminar.databinding.ActivitySignInBinding
-import org.sopt.seminar.showToast
 import retrofit2.Callback
 import retrofit2.Response
 import kotlin.math.sign
@@ -45,7 +42,6 @@ class SignInActivity : AppCompatActivity() {
         )
 
         val call: Call<ResponseSignIn> = ServiceCreator.soptService.postLogin(requestSignIn)
-
         call.enqueue(object : Callback<ResponseSignIn> { //실제 서버통신을 비동기적으로 요청
             override fun onResponse( //Callback 익명클래스 선언
                 call: Call<ResponseSignIn>,
@@ -56,7 +52,7 @@ class SignInActivity : AppCompatActivity() {
 
                     Toast.makeText(
                         this@SignInActivity,
-                        "${data?.email}님 반갑습니다!",
+                        "${data?.name}님 반갑습니다!",
                         Toast.LENGTH_SHORT
                     ).show()
                     startActivity(Intent(this@SignInActivity, MainActivity::class.java))
