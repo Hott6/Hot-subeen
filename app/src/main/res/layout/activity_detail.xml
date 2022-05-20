@@ -31,6 +31,18 @@
         app:layout_constraintStart_toStartOf="@+id/iv_profile"
         app:layout_constraintTop_toBottomOf="@+id/iv_profile"
         tools:text="김수빈" />
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+        app:layout_constraintStart_toStartOf="@+id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        tools:text="github_ID" />
 
     <TextView
         android:id="@+id/tv_introduce"
@@ -41,6 +53,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_id"
         tools:text="안드로이드 파트원" />
 </androidx.constraintlayout.widget.ConstraintLayout>
