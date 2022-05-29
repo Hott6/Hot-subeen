@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
-import org.sopt.seminar.R
-import org.sopt.seminar.User
+import org.sopt.seminar.*
 import org.sopt.seminar.databinding.FragmentProfileBinding
 import org.sopt.seminar.presentation.follower.FollowerFragment
 import org.sopt.seminar.presentation.repo.RepoFragment
+import retrofit2.Response
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -23,7 +23,6 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-        binding.user = User("김수빈", "23", "ENFJ")
         return binding.root
     }
 
@@ -34,10 +33,13 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initImage() {
-        Glide.with(this)
-            .load("https://i.pinimg.com/564x/71/9f/ad/719fad4d7eeee41beb6d17b6de75ff21.jpg")
-            .circleCrop()
-            .into(binding.imgProfile)
+        val call = ServiceCreator.githubApiService.getUserInfo()
+        call.enqueueUtil(
+            onSuccess = {
+                Glide.with(this).load(it.avatar_url).circleCrop().into(binding.imgProfile)
+                binding.user = it
+            }
+        )
     }
 
     private fun initTransactionEvent() {

@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="org.sopt.seminar.User" />
+            type="org.sopt.seminar.ResponseUserInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,10 +16,11 @@
         tools:context=".presentation.profile.ProfileFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="#e5e3f2"
             android:layout_marginBottom="60dp"
+            android:background="#e5e3f2"
             app:layout_constraintBottom_toTopOf="@+id/fragment_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,11 +30,11 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="130dp"
             android:layout_marginTop="30dp"
-            android:src="@drawable/profile"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/profile" />
 
         <TextView
             android:id="@+id/tv_id"
@@ -41,22 +42,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:text="이름: "
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/img_profile"
-            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="@{user.name}"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_id"
-            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+            app:layout_constraintEnd_toEndOf="@+id/img_profile"
+            app:layout_constraintStart_toStartOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            tools:text="깃헙 Name" />
+
 
         <TextView
             android:id="@+id/tv_age"
@@ -64,22 +57,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="나이: "
+            android:text="@{user.login}"
             android:textColor="@color/black"
             android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/img_profile"
             app:layout_constraintStart_toStartOf="@+id/img_profile"
-            app:layout_constraintTop_toBottomOf="@+id/tv_id" />
-
-        <TextView
-            android:id="@+id/tv_myage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@{user.age}"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_id"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_id"
+            tools:text="깃헙 아이디" />
 
         <TextView
             android:id="@+id/tv_mbti"
@@ -87,23 +71,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="MBTI: "
+            android:text="@{user.bio}"
             android:textColor="@color/black"
             android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/img_profile"
             app:layout_constraintStart_toStartOf="@+id/img_profile"
-            app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_age"
+            tools:text="자기소개" />
 
-        <TextView
-            android:id="@+id/tv_mymbti"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@{user.mbti}"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_id"
-            app:layout_constraintTop_toBottomOf="@+id/tv_myage" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_follower"
