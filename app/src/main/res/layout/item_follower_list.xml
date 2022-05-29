@@ -37,7 +37,7 @@
             android:layout_marginTop="2dp"
             android:fontFamily="@font/noto_sans_kr_bold"
             android:includeFontPadding="false"
-            android:text="@{follower.name}"
+            android:text="@{follower.login}"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
