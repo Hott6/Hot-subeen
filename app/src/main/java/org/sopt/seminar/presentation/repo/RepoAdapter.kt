@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import org.sopt.seminar.ResponseRepo
 import org.sopt.seminar.databinding.ItemRepoListBinding
 
-class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
+class RepoAdapter : ListAdapter<ResponseRepo, RepoAdapter.RepoViewHolder>(
     DIFFUTIL
 ) {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
         val binding =
             ItemRepoListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,23 +25,23 @@ class RepoAdapter : ListAdapter<RepoData, RepoAdapter.RepoViewHolder>(
     class RepoViewHolder(
         private val binding: ItemRepoListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(repoData: RepoData) {
+        fun onBind(repoData: ResponseRepo) {
             binding.repo = repoData
         }
     }
 
     companion object {
-        val DIFFUTIL = object : DiffUtil.ItemCallback<RepoData>() {
+        val DIFFUTIL = object : DiffUtil.ItemCallback<ResponseRepo>() {
             override fun areItemsTheSame(
-                oldItem: RepoData,
-                newItem: RepoData
+                oldItem: ResponseRepo,
+                newItem: ResponseRepo
             ): Boolean {
-                return oldItem.repo == newItem.repo
+                return oldItem.name == newItem.name
             }
 
             override fun areContentsTheSame(
-                oldItem: RepoData,
-                newItem: RepoData
+                oldItem: ResponseRepo,
+                newItem: ResponseRepo
             ): Boolean {
                 return oldItem == newItem
             }

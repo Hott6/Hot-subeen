@@ -2,6 +2,7 @@ package org.sopt.seminar.presentation.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import org.sopt.seminar.databinding.ActivityDetailBinding
 
 
@@ -16,12 +17,14 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun getData() {
-        val name = intent.getStringExtra("name")
-        val introduction = intent.getStringExtra("introduction")
-
         binding.apply {
-            tvName.text = name
-            tvIntroduce.text = introduction
+            with(intent) {
+                Glide.with(this@DetailActivity).load(getStringExtra("profile")).into(ivProfile)
+                tvName.text = getStringExtra("name")
+                tvId.text = getStringExtra("id")
+                tvIntroduce.text = getStringExtra("introduce")
+            }
+
         }
 
     }

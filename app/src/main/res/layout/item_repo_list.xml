@@ -8,7 +8,7 @@
 
         <variable
             name="repo"
-            type="org.sopt.seminar.presentation.repo.RepoData" />
+            type="org.sopt.seminar.ResponseRepo" />
 
     </data>
 
@@ -30,7 +30,7 @@
             android:fontFamily="@font/noto_sans_kr_bold"
             android:includeFontPadding="false"
             android:maxLines="1"
-            android:text="@{repo.repo}"
+            android:text="@{repo.name}"
             android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -48,13 +48,27 @@
             android:fontFamily="@font/noto_sans_kr_regular"
             android:includeFontPadding="false"
             android:maxLines="1"
-            android:text="@{repo.introduction}"
+            android:text="@{repo.description}"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_repo"
             app:layout_constraintTop_toBottomOf="@+id/tv_repo"
-            tools:text="레포지토리 예시입니다~" />
+            tools:text="레포지토리 설명입니다" />
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:ems="7"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text='@{"언어:"+ repo.language}'
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/tv_repo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repomemo"
+            tools:text="레포지토리 설명입니다" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

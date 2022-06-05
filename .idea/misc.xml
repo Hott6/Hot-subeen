@@ -17,7 +17,7 @@
         <entry key="app/src/main/res/font/noto_sans_kr.xml" value="0.3194871794871795" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.24909420289855072" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24693298339843756" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14571662755964251" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3819776138877676" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.22578430175781244" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.21970825195312493" />
         <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.30660497693048006" />
@@ -27,8 +27,8 @@
         <entry key="app/src/main/res/layout/fragment_home_following.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.18617021276595744" />
         <entry key="app/src/main/res/layout/fragment_repo.xml" value="0.23596014492753623" />
-        <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.23596014492753623" />
-        <entry key="app/src/main/res/layout/item_repo_list.xml" value="0.25271739130434784" />
+        <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.287786865234375" />
+        <entry key="app/src/main/res/layout/item_repo_list.xml" value="0.33541259765625" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.3098958333333333" />
       </map>
     </option>

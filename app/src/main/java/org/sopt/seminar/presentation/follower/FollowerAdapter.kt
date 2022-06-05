@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import org.sopt.seminar.ResponseUserInfo
 import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.ItemFollowerListBinding
 import java.util.*
 
-class FollowerAdapter : ListAdapter<FollowerData, FollowerAdapter.FollowerViewHolder>(DIFFUTIL),
+class FollowerAdapter : ListAdapter<ResponseUserInfo, FollowerAdapter.FollowerViewHolder>(DIFFUTIL),
     MyTouchHelperCallback.OnItemMoveListener {
 
     private lateinit var itemClickListener: OnItemClickListener
@@ -33,23 +35,27 @@ class FollowerAdapter : ListAdapter<FollowerData, FollowerAdapter.FollowerViewHo
     class FollowerViewHolder(
         private val binding: ItemFollowerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(followerData: FollowerData) {
+        fun onBind(followerData: ResponseUserInfo) {
             binding.follower = followerData
+            Glide.with(binding.root)
+                .load(followerData.avatar_url)
+                .circleCrop()
+                .into(binding.ivProfile)
         }
     }
 
     companion object {
-        val DIFFUTIL = object : DiffUtil.ItemCallback<FollowerData>() {
+        val DIFFUTIL = object : DiffUtil.ItemCallback<ResponseUserInfo>() {
             override fun areItemsTheSame(
-                oldItem: FollowerData,
-                newItem: FollowerData
+                oldItem: ResponseUserInfo,
+                newItem: ResponseUserInfo
             ): Boolean {
                 return oldItem.name == newItem.name
             }
 
             override fun areContentsTheSame(
-                oldItem: FollowerData,
-                newItem: FollowerData
+                oldItem: ResponseUserInfo,
+                newItem: ResponseUserInfo
             ): Boolean {
                 return oldItem == newItem
             }
