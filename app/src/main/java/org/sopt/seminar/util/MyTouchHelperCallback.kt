@@ -12,7 +12,7 @@ class MyTouchHelperCallback(
 
     interface OnItemMoveListener {
         fun onItemMove(fromPosition: Int, toPosition: Int)
-        fun startDrag(onStartDragListener: FollowerAdapter.OnStartDragListener) {}
+        //fun startDrag(onStartDragListener: FollowerAdapter.OnStartDragListener) {}
         fun onItemSwipe(position: Int)
     }
 
@@ -41,14 +41,14 @@ class MyTouchHelperCallback(
         return true
     }
 
-    override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
-        super.onSelectedChanged(viewHolder, actionState)
-        if (isMoved) {
-            isMoved = false
-            val followAdapter = FollowerAdapter()
-            followAdapter.afterDragAndDrop()
-        }
-    }
+//    override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+//        super.onSelectedChanged(viewHolder, actionState)
+//        if (isMoved) {
+//            isMoved = false
+//            val followAdapter = FollowerAdapter()
+//            followAdapter.afterDragAndDrop()
+//        }
+//    }
 
     /**
      * 좌우 스와이프

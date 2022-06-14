@@ -15,11 +15,11 @@ object ServiceModule {
 
     @Provides
     @Singleton
-    fun provideGithubService(@NetworkModule.GithubRetrofit retrofit: Retrofit): GithubApiService =
+    fun provideGithubService(@GithubRetrofit retrofit: Retrofit): GithubApiService =
         retrofit.create(GithubApiService::class.java)
 
     @Provides
     @Singleton
-    fun provideSoptService(@NetworkModule.SoptRetrofit retrofit: Retrofit): SoptService =
+    fun provideSoptService(@SoptRetrofit retrofit: Retrofit): SoptService =
         retrofit.create(SoptService::class.java)
 }

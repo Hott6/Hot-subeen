@@ -20,3 +20,5 @@ interface SoptService {
     ): Call<ResponseSignUp>
 
 }
+// 코루틴 사용 시 suspend fun() 으로 선언할 때는 Call로 하지 않고 Response불러와도 됨
+// suspend fun postSignup( ... ): ResponseSignUp

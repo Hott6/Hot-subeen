@@ -1,6 +1,7 @@
 package org.sopt.seminar.di
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -8,6 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
+import org.sopt.seminar.ServiceCreator
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
@@ -15,20 +17,21 @@ import javax.inject.Inject
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class GithubRetrofit
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class SoptRetrofit
+
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    const val BASE_URL = "http://13.124.62.236/"
-    const val GITHUB_URL = "https://api.github.com/"
+    private const val BASE_URL = "http://13.124.62.236/"
+    private const val GITHUB_URL = "https://api.github.com/"
 
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class GithubRetrofit
-
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class SoptRetrofit
 
     @Provides
     @Singleton
@@ -42,16 +45,17 @@ object NetworkModule {
 
     class AppInterceptor @Inject constructor() : Interceptor {
         @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain)
-                : Response = with(chain) {
+        override fun intercept(chain: Interceptor.Chain): Response = with(chain) {
             val newRequest = request().newBuilder()
-                .addHeader("Authorization", "Token " + "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")
-                //papajj06 깃헙 토큰 넣기
+                .addHeader("accept", "application/vnd.github.v3+json")
                 .build()
             proceed(newRequest)
         }
     }
 
+    @Provides
+    @Singleton
+    fun provideGson(): Gson = GsonBuilder().setLenient().create()
 
     @Provides
     @Singleton
@@ -60,6 +64,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl(GITHUB_URL)
+            .client(provideOkHttpClient(AppInterceptor()))
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }

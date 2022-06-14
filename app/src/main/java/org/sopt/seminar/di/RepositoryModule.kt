@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.sopt.seminar.data.repositories.GithubRepositoryImpl
+import org.sopt.seminar.data.services.GithubApiService
 import org.sopt.seminar.domain.repositories.GithubRepository
 import javax.inject.Singleton
 
@@ -13,5 +14,7 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Provides
     @Singleton
-    fun provideGithubRepository(githubRepository: GithubRepositoryImpl) : GithubRepository = githubRepository
+    fun provideGithubRepository(
+        githubRepository: GithubRepositoryImpl
+    ): GithubRepository = githubRepository
 }

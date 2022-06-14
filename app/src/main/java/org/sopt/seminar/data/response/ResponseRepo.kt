@@ -6,8 +6,6 @@ data class ResponseRepo(
     val name: String,
     val description: String?,
     val language: String?
-){
-    fun toRepoInfo(): RepoInfo{
-        return RepoInfo(name,description,language)
-    }
+) {
+    fun toRepoInfo(): RepoInfo = RepoInfo(name, description, language)
 }
