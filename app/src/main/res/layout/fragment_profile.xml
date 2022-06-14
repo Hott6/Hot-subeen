@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="org.sopt.seminar.ResponseUserInfo" />
+            type="org.sopt.seminar.data.response.ResponseUser" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,11 +30,11 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="130dp"
             android:layout_marginTop="30dp"
+            android:src="@drawable/profile"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/profile" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_id"

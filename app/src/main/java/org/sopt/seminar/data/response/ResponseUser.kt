@@ -7,8 +7,8 @@ data class ResponseUser(
     @SerializedName("avatar_url")
     val avatarUrl: String,
     val login: String,
-    val name: String,
-    val bio: String
+    val name: String?,
+    val bio: String?
 ) {
     fun toUserInfo(): FollowerInfo = FollowerInfo(name, avatarUrl, login, bio)
 }

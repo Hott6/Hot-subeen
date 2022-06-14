@@ -5,8 +5,8 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class FollowerInfo(
-    val name: String,
+    val name: String?,
     val avatar_url: String,
     val login: String,
-    val bio: String
+    val bio: String?
 ) : Parcelable

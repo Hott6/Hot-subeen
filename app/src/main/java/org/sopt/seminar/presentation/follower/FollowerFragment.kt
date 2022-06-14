@@ -2,21 +2,31 @@ package org.sopt.seminar.presentation.follower
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import org.sopt.seminar.*
-import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.FragmentFollowerBinding
+import org.sopt.seminar.domain.repositories.GithubRepository
 import org.sopt.seminar.presentation.detail.DetailActivity
 import org.sopt.seminar.util.BaseFragment
+import org.sopt.seminar.util.MyTouchHelperCallback
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
 
-    private var followerAdapter = FollowerAdapter()
+    private var followerAdapter: FollowerAdapter? = FollowerAdapter()
+
+    @Inject
+    lateinit var githubRepository: GithubRepository
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         initAdapter()
     }
 
@@ -26,35 +36,28 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
         addRepoList()
         itemClickEvent()
 
-        val callback = MyTouchHelperCallback(followerAdapter)
-        val touchHelper = ItemTouchHelper(callback)
-        touchHelper.attachToRecyclerView(binding.rvFollower)
+        val callback = followerAdapter?.let { MyTouchHelperCallback(it) }
+        val touchHelper = callback?.let { ItemTouchHelper(it) }
+        touchHelper?.attachToRecyclerView(binding.rvFollower)
         binding.rvFollower.adapter = followerAdapter
-        followerAdapter.startDrag(object : FollowerAdapter.OnStartDragListener {
-            override fun onStartDrag(viewHolder: FollowerAdapter.FollowerViewHolder) {
-                touchHelper.startDrag(viewHolder)
-            }
-        })
     }
 
     private fun addRepoList() {
-        val call = ServiceCreator.githubApiService.getFollowingInfo()
-
-        call.enqueueUtil(
-            onSuccess = {
-                followerAdapter.submitList(it)
-            }
-        )
-
+        viewLifecycleOwner.lifecycleScope.launch {
+            runCatching { githubRepository.followList() }
+                .onSuccess {
+                    followerAdapter?.submitList(it?.toMutableList())
+                }.onFailure { Log.e("수빈,", "안됩니다FollowerFragment", it) }
+        }
     }
 
     private fun itemClickEvent() {
-        followerAdapter.setItemClickListener(object : FollowerAdapter.OnItemClickListener {
-            override fun onClick(view: View, position: Int) {
-                val name = followerAdapter.currentList[position].name
-                val introduce = followerAdapter.currentList[position].bio
-                val profile = followerAdapter.currentList[position].avatar_url
-                val id = followerAdapter.currentList[position].login
+        followerAdapter?.setItemClickListener(object : FollowerAdapter.OnItemClickListener {
+            override fun onClick(data: View, position: Int) {
+                val name = followerAdapter!!.currentList[position].name
+                val introduce = followerAdapter!!.currentList[position].bio
+                val profile = followerAdapter!!.currentList[position].avatar_url
+                val id = followerAdapter!!.currentList[position].login
 
                 val intent = Intent(context, DetailActivity::class.java).apply {
                     putExtra("profile", profile)
@@ -64,9 +67,7 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
                 startActivity(intent)
-
             }
-
         })
     }
 
@@ -77,4 +78,8 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
         }
     }
 
+    override fun onDestroyView() {
+        followerAdapter = null
+        super.onDestroyView()
+    }
 }
