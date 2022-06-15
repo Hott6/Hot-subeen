@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +20,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
 
+    private val viewModel by viewModels<FollowerViewModel>()
     private var followerAdapter: FollowerAdapter? = FollowerAdapter()
 
     @Inject
@@ -28,12 +30,13 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
         initAdapter()
+        viewModel.followerList()
     }
 
     private fun initAdapter() {
         binding.rvFollower.adapter = followerAdapter
         recyclerViewDecoration()
-        addRepoList()
+        observeFollower()
         itemClickEvent()
 
         val callback = followerAdapter?.let { MyTouchHelperCallback(it) }
@@ -42,12 +45,9 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
         binding.rvFollower.adapter = followerAdapter
     }
 
-    private fun addRepoList() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            runCatching { githubRepository.followList() }
-                .onSuccess {
-                    followerAdapter?.submitList(it?.toMutableList())
-                }.onFailure { Log.e("수빈,", "안됩니다FollowerFragment", it) }
+    private fun observeFollower() {
+        viewModel.getFollower().observe(viewLifecycleOwner) {
+            followerAdapter?.submitList(it?.toMutableList())
         }
     }
 
