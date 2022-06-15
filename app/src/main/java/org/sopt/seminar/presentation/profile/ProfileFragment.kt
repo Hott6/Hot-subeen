@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +28,8 @@ import javax.inject.Inject
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private val viewModel by viewModels<ProfileViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,31 +38,26 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    @Inject
-    lateinit var githubApiService: GithubApiService
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initImage()
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this@ProfileFragment
+
+        getUser()
+        observeUser()
         initTransactionEvent()
     }
 
-    /*private fun initImage() {
-        val call = ServiceCreator.githubApiService.getUserInfo()
-        call.enqueueUtil(
-            onSuccess = {
-                Glide.with(this).load(it.avatar_url).circleCrop().into(binding.imgProfile)
-                binding.user = it
-            }
-        )
-    }*/
-    private fun initImage() {
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
-            runCatching { githubApiService.getUserInfo() }
-                .onSuccess {
-                    //Glide.with(this).load(it.avatarUrl).circleCrop().into(binding.imgProfile)
-                    binding.user = it
-                }.onFailure { Log.e("수빈,", "안됩니다ProfileFramgnet", it) }
+    private fun getUser() {
+        viewModel.getUser()
+    }
+
+    private fun observeUser() {
+        viewModel.profileImg.observe(viewLifecycleOwner) {
+            Glide.with(this)
+                .load(it)
+                .circleCrop()
+                .into(binding.imgProfile)
         }
     }
 
