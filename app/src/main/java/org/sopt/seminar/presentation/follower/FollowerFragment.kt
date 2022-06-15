@@ -23,9 +23,6 @@ class FollowerFragment : BaseFragment<FragmentFollowerBinding>(R.layout.fragment
     private val viewModel by viewModels<FollowerViewModel>()
     private var followerAdapter: FollowerAdapter? = FollowerAdapter()
 
-    @Inject
-    lateinit var githubRepository: GithubRepository
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
