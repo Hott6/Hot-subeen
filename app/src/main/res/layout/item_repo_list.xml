@@ -8,7 +8,7 @@
 
         <variable
             name="repo"
-            type="org.sopt.seminar.ResponseRepo" />
+            type="org.sopt.seminar.domain.models.RepoInfo" />
 
     </data>
 

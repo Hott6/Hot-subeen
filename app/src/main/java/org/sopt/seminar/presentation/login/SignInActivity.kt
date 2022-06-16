@@ -31,7 +31,7 @@ class SignInActivity : AppCompatActivity() {
 
     private fun loginEvent() {
         binding.btnLogin.setOnClickListener {
-          loginNetwork()
+            loginNetwork()
         }
     }
 

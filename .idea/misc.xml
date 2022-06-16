@@ -25,7 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30594787597656253" />
         <entry key="app/src/main/res/layout/fragment_home_follower.xml" value="0.14311043566362716" />
         <entry key="app/src/main/res/layout/fragment_home_following.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.18617021276595744" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_repo.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.287786865234375" />
         <entry key="app/src/main/res/layout/item_repo_list.xml" value="0.33541259765625" />

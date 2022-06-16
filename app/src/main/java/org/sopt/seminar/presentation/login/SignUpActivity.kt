@@ -10,7 +10,7 @@ import org.sopt.seminar.ResponseSignUp
 import org.sopt.seminar.ServiceCreator
 import org.sopt.seminar.databinding.ActivitySignUpBinding
 import org.sopt.seminar.main.MainActivity
-import org.sopt.seminar.showToast
+import org.sopt.seminar.util.showToast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,36 +46,36 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun signNetwork(){
-            val requestSignUp = RequestSignUp(
-                id = binding.etId.text.toString(),
-                name = binding.etName.text.toString(),
-                password = binding.etPw.text.toString()
-            )
+    private fun signNetwork() {
+        val requestSignUp = RequestSignUp(
+            id = binding.etId.text.toString(),
+            name = binding.etName.text.toString(),
+            password = binding.etPw.text.toString()
+        )
 
-            val call: Call<ResponseSignUp> = ServiceCreator.soptService.postSignUp(requestSignUp)
+        val call: Call<ResponseSignUp> = ServiceCreator.soptService.postSignUp(requestSignUp)
 
-            call.enqueue(object : Callback<ResponseSignUp> { //실제 서버통신을 비동기적으로 요청
-                override fun onResponse( //Callback 익명클래스 선언
-                    call: Call<ResponseSignUp>,
-                    response: Response<ResponseSignUp>
-                ) {
-                    if (response.isSuccessful) {
-                        val data = response.body()?.data //null값 올 수 있으므로 nullable 타입
+        call.enqueue(object : Callback<ResponseSignUp> { //실제 서버통신을 비동기적으로 요청
+            override fun onResponse( //Callback 익명클래스 선언
+                call: Call<ResponseSignUp>,
+                response: Response<ResponseSignUp>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()?.data //null값 올 수 있으므로 nullable 타입
 
-                        Toast.makeText(
-                            this@SignUpActivity,
-                            "${data?.id}님 반갑습니다!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
-                    } else Toast.makeText(this@SignUpActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
-                        .show()
-                }
+                    Toast.makeText(
+                        this@SignUpActivity,
+                        "${data?.id}님 반갑습니다!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
+                } else Toast.makeText(this@SignUpActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
+                    .show()
+            }
 
-                override fun onFailure(call: Call<ResponseSignUp>, t: Throwable) {
-                    Log.e("NetworkTest", "error:$t") //오류처리 코드
-                }
-            })
-        }
+            override fun onFailure(call: Call<ResponseSignUp>, t: Throwable) {
+                Log.e("NetworkTest", "error:$t") //오류처리 코드
+            }
+        })
     }
+}

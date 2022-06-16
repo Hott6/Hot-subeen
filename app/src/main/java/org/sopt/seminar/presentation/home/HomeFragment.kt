@@ -11,11 +11,14 @@ import org.sopt.seminar.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var homeViewPagerAdapter: HomeViewPagerAdapter
+
+    private var homeViewPagerAdapter: HomeViewPagerAdapter? = null
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -27,11 +30,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        val fragmentList=listOf(HomeFollowerFragment(),HomeFollowingFragment())
+        val fragmentList = listOf(HomeFollowerFragment(), HomeFollowingFragment())
 
-        homeViewPagerAdapter= HomeViewPagerAdapter(this)
-        homeViewPagerAdapter.fragments.addAll(fragmentList)
-        binding.vpHome.adapter=homeViewPagerAdapter
+        homeViewPagerAdapter = HomeViewPagerAdapter(this)
+        homeViewPagerAdapter?.fragments?.addAll(fragmentList)
+        binding.vpHome.adapter = homeViewPagerAdapter
 
     }
 
@@ -46,5 +49,6 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        homeViewPagerAdapter = null
     }
 }

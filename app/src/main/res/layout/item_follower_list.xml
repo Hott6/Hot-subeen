@@ -7,7 +7,7 @@
 
         <variable
             name="follower"
-            type="org.sopt.seminar.ResponseUserInfo" />
+            type="org.sopt.seminar.domain.models.FollowerInfo" />
 
     </data>
 

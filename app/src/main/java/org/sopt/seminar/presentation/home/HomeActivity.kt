@@ -1,43 +1,47 @@
 package org.sopt.seminar.presentation.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import org.sopt.seminar.presentation.follower.FollowerFragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 import org.sopt.seminar.R
-import org.sopt.seminar.presentation.repo.RepoFragment
 import org.sopt.seminar.User
 import org.sopt.seminar.databinding.ActivityHomeBinding
+import org.sopt.seminar.presentation.follower.FollowerFragment
+import org.sopt.seminar.presentation.repo.RepoFragment
 
 class HomeActivity : AppCompatActivity() {
+
     private var position = FOLLOWER_POSITION
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         binding.user = User("김수빈", "23", "ENFJ")
 
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                replace(R.id.fragment_home, FollowerFragment())
+            }
+        }
         inintTransactionEvent()
     }
 
     private fun inintTransactionEvent() {
-        val followerFragment = FollowerFragment()
-        val repoFragment = RepoFragment()
-
-        supportFragmentManager.beginTransaction().add(R.id.fragment_home, followerFragment).commit()
-
         binding.btnFollower.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
             if (position == REPO_POSITION) {
-                transaction.replace(R.id.fragment_home, followerFragment).commit()
-                position = FOLLOWER_POSITION
+                supportFragmentManager.commit {
+                    replace(R.id.fragment_home, FollowerFragment())
+                    position = FOLLOWER_POSITION
+                }
             }
         }
         binding.btnRepo.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
             if (position == FOLLOWER_POSITION) {
-                transaction.replace(R.id.fragment_home, repoFragment).commit()
-                position = REPO_POSITION
+                supportFragmentManager.commit {
+                    replace(R.id.fragment_home, RepoFragment())
+                    position = REPO_POSITION
+                }
             }
         }
     }

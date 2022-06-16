@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="user"
-            type="org.sopt.seminar.ResponseUserInfo" />
+            name="viewModel"
+            type="org.sopt.seminar.presentation.profile.ProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,11 +30,11 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="130dp"
             android:layout_marginTop="30dp"
+            android:src="@{viewModel.userInfo.avatarUrl}"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/profile" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_id"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:text="@{user.name}"
+            android:text="@{viewModel.userInfo.name}"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/img_profile"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="@{user.login}"
+            android:text="@{viewModel.userInfo.login}"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/img_profile"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="@{user.bio}"
+            android:text="@{viewModel.userInfo.bio}"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/img_profile"

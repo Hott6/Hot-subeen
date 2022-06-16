@@ -7,18 +7,22 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import org.sopt.seminar.ResponseUserInfo
 import org.sopt.seminar.util.MyTouchHelperCallback
 import org.sopt.seminar.databinding.ItemFollowerListBinding
+import org.sopt.seminar.domain.models.FollowerInfo
 import java.util.*
 
-class FollowerAdapter : ListAdapter<ResponseUserInfo, FollowerAdapter.FollowerViewHolder>(DIFFUTIL),
+class FollowerAdapter :
+    ListAdapter<FollowerInfo, FollowerAdapter.FollowerViewHolder>(DIFFUTIL),
     MyTouchHelperCallback.OnItemMoveListener {
 
     private lateinit var itemClickListener: OnItemClickListener
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): FollowerViewHolder {
         val binding =
             ItemFollowerListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FollowerViewHolder(binding)
@@ -35,37 +39,34 @@ class FollowerAdapter : ListAdapter<ResponseUserInfo, FollowerAdapter.FollowerVi
     class FollowerViewHolder(
         private val binding: ItemFollowerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(followerData: ResponseUserInfo) {
+        fun onBind(followerData: FollowerInfo) {
             binding.follower = followerData
             Glide.with(binding.root)
                 .load(followerData.avatar_url)
                 .circleCrop()
                 .into(binding.ivProfile)
         }
+
     }
 
     companion object {
-        val DIFFUTIL = object : DiffUtil.ItemCallback<ResponseUserInfo>() {
+        val DIFFUTIL = object : DiffUtil.ItemCallback<FollowerInfo>() {
             override fun areItemsTheSame(
-                oldItem: ResponseUserInfo,
-                newItem: ResponseUserInfo
+                oldItem: FollowerInfo,
+                newItem: FollowerInfo
             ): Boolean {
                 return oldItem.name == newItem.name
             }
 
             override fun areContentsTheSame(
-                oldItem: ResponseUserInfo,
-                newItem: ResponseUserInfo
+                oldItem: FollowerInfo,
+                newItem: FollowerInfo
             ): Boolean {
                 return oldItem == newItem
             }
         }
     }
 
-
-    interface OnStartDragListener {
-        fun onStartDrag(viewHolder: FollowerViewHolder)
-    }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
         Collections.swap(currentList, fromPosition, toPosition)
@@ -75,10 +76,6 @@ class FollowerAdapter : ListAdapter<ResponseUserInfo, FollowerAdapter.FollowerVi
     override fun onItemSwipe(position: Int) {
         currentList.removeAt(position)
         notifyItemRemoved(position)
-    }
-
-    fun afterDragAndDrop() {
-        notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
